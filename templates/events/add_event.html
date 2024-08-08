@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adicionar Evento</title>
+</head>
+<body>
+    <h1>Adicionar Novo Evento</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar Evento</button>
+    </form>
+</body>
+</html>
