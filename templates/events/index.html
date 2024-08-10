@@ -1,25 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Lista de Eventos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaEvents</title>
+    <style>
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #222020;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2 {
+            color: #f9f9f9;
+            margin-top: 20px;
+        }
+
+        a button {
+            background-color: #851ec1fb;
+            color: #f9f9f9;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        a button:hover {
+            background-color:#681a96fb;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 80%;
+            max-width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px; 
+            margin: 10px;
+        }
+
+        li {
+            background-color: #f9f9f9d4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: calc(33.333% - 10px);
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        li .text-content {
+            flex: 1; 
+            text-align: center; 
+            margin-bottom: 20px;
+        }
+
+        strong {
+            color: #851ec1fb;
+        }
+
+        form button {
+            background-color: #ad2836;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            justify-content: end;
+        }
+
+        form button:hover {
+            background-color: #c82333;
+        }
+    </style>
+
 </head>
 <body>
-    <h1>Eventos</h1>
+    <h1>VivaEvents</h1>
     
-    <!-- Botão para adicionar evento -->
     <a href="{% url 'add_event' %}"><button>Adicionar Evento</button></a>
 
-    <!-- Lista de eventos -->
-    <h2>Lista de Eventos</h2>
     <ul>
         {% for evento in eventos %}
             <li>
-                <strong>Título:</strong> {{ evento.titulo }}<br>
-                <strong>Tipo:</strong> {{ evento.tipo }}<br>
-                <strong>Data de Início:</strong> {{ evento.data_inicio }}<br>
-                <strong>Local:</strong> {{ evento.local }}<br>
-                <strong>Cidade:</strong> {{ evento.cidade }}<br>
-                <form action="{% url 'delete_event' evento.id %}" method="post" style="display:inline;">
+                <div class="text-content">
+                    <strong>Título:</strong> {{ evento.titulo }}<br>
+                    <strong>Tipo:</strong> {{ evento.tipo }}<br>
+                    <strong>Data de Início:</strong> {{ evento.data_inicio }}<br>
+                    {% if evento.data_fim %}
+                        <strong>Data de Término:</strong> {{ evento.data_fim }}<br>
+                    {% endif %}
+                    <strong>Local:</strong> {{ evento.local }}<br>
+                    <strong>Cidade:</strong> {{ evento.cidade }}<br>
+                    {% if evento.valor %}
+                        <strong>Valor:</strong> {{ evento.valor }}<br>
+                    {% endif %}
+                </div>
+                <form action="{% url 'delete_event' evento.id %}" method="post">
                     {% csrf_token %}
                     <button type="submit">Excluir</button>
                 </form>

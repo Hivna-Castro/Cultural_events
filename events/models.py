@@ -9,6 +9,12 @@ class Evento(models.Model):
         ('musical', 'Musical'),
         ('humor', 'Show de Humor'),
         ('magica', 'Mágica'),
+        ('arte', 'Arte'),
+        ('tecnologia', 'Tecnologia'),
+        ('gastronomia', 'Gastronomia'),
+        ('esporte', 'Esporte'),  
+        ('cinema', 'Cinema'),
+        ('workshop', 'Workshop')
     ]
 
     titulo = models.CharField(max_length=200)
