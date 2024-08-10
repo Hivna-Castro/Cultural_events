@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Evento</title>
+    <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
 </head>
+
 <body>
     <h1>Adicionar Novo Evento</h1>
     
-    <form method="post">
+    <form class="form"  method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Adicionar Evento</button>
