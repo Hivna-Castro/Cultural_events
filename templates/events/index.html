@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivaEvents</title>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'img/letter_e.png' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
 </head>
@@ -25,8 +27,17 @@
                     {% endif %}
                     <strong>Local:</strong> {{ evento.local }}<br>
                     <strong>Cidade:</strong> {{ evento.cidade }}<br>
-                    {% if evento.valor %}
-                        <strong>Valor:</strong> {{ evento.valor }}<br>
+                    <strong>Valor:</strong>
+                    {% if evento.gratuito %}
+                        Gratuito
+                    {% else %}
+                        R$ {{ evento.valor }}
+                    {% endif %}<br>
+                    <strong>Vagas:</strong>
+                    {% if evento.vagas_ilimitadas %}
+                        Ilimitadas
+                    {% else %}
+                        {{ evento.quantidade_vagas }}
                     {% endif %}
                 </div>
                 <form action="{% url 'delete_event' evento.id %}" method="post">

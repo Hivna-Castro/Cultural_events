@@ -27,6 +27,7 @@ class Evento(models.Model):
     horario = models.CharField(max_length=100)
     cidade = models.CharField(max_length=100)
     quantidade_vagas = models.IntegerField(null=True, blank=True)
+    vagas_ilimitadas = models.BooleanField(default=False)
 
     def __str__(self):
         return self.titulo
