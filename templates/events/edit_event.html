@@ -4,7 +4,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Evento</title>
+    <title>Editar Evento</title>
     <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
     <link rel="icon" href="{% static 'img/letter_e.png' %}" type="image/x-icon">
 </head>
@@ -13,22 +13,20 @@
         <h1>VivaEvents</h1>
     </header>
 
-    
-        <h2>Adicionar Novo Evento</h2>
-        
-        <form class="form" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <div class="button-form">
-                <button type="button" id="return" onclick="redirectToIndex();">Cancelar</button>
-                <button type="submit">Adicionar Evento</button>
-            </div>
-        </form>
-    
+    <h2>Editar Evento</h2>
+
+    <form class="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-form">
+            <button type="button" id="return" onclick="redirectToIndex();">Cancelar</button>
+            <button type="submit">Salvar Alterações</button>
+        </div>
+    </form>
 
     <footer>
         <h3>Por Hivna Castro</h3>
-        <p> Gerencie seus eventos com VivaEventsS</p>
+        <p>Gerencie seus eventos com VivaEventsS</p>
     </footer>
 </body>
 </html>

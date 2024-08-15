@@ -2,53 +2,76 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #222020;
     margin: 0;
-    margin-bottom:20px;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 14px 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
 h1 {
-    color:#851ec1fb;
-    margin-top: 20px;
+    color: #f9f9f9;
+    margin: 0;
+    font-size: 24px;
+}
+
+h2 {
+    color: #851ec1fb;
+    font-size: 20px;
+    margin-bottom: 20px;;
 }
 
 form {
     background-color: #f9f9f9d4;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     width: 60%;
-    max-width: 500px;
+    max-width: 400px;
+    margin-bottom: 30px;
 }
 
 label {
     color: #851ec1fb;
-    margin-bottom: 10px;
+    margin-bottom: 2px; /* Reduzido ainda mais o espaço entre o label e o campo */
     font-weight: bold; 
+    font-size: 14px;
 }
 
 input[type="text"],
 input[type="date"],
 input[type="number"],
 select {
-    padding: 6px;
-  
+    padding: 4px; 
     border-radius: 5px;
     border: 1px solid #ddd;
-    font-size: 16px;
+    font-size: 14px;
     width: 100%;
+    margin-top: 6px;
+    margin-bottom: -30px; /* Espaço mínimo entre o campo e o próximo label */
     box-sizing: border-box;
 }
+
 
 form button {
     background-color: #851ec1fb;
     color: #f9f9f9;
     border: none;
-    margin: 14px;
+    margin-top: 10px; /* Ajusta a margem superior para alinhamento */
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
@@ -56,6 +79,31 @@ form button {
     transition: background-color 0.3s ease;
     align-self: center;
 }
+ #return {
+    background-color: #961a1afb;
+}
+
+#return:hover {
+    background-color: #be2d2dfb;
+}
+
+.button-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 form button:hover {
     background-color: #681a96fb;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #f9f9f9;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 10px;
 }

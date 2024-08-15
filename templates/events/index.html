@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivaEvents</title>
-
-    <link rel="icon" type="image/x-icon" href="{% static 'img/letter_e.png' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-
+    <link rel="icon" href="{% static 'img/letter_e.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <h1>VivaEvents</h1>
-    
-    <a href="{% url 'add_event' %}"><button>Adicionar Evento</button></a>
+    <header>
+
+        <h1>VivaEvents</h1>
+        <a href="{% url 'add_event' %}">
+            <button>Adicionar Evento</button>
+        </a>
+    </header>
 
     <ul>
         {% for evento in eventos %}
             <li>
                 <div class="text-content">
-                    <strong>Título:</strong> {{ evento.titulo }}<br>
+                    <div class="title-content">
+                        <p>{{ evento.titulo }}</p> <br>
+                    </div>
                     <strong>Tipo:</strong> {{ evento.tipo }}<br>
                     <strong>Data de Início:</strong> {{ evento.data_inicio }}<br>
                     {% if evento.data_fim %}
@@ -40,12 +45,33 @@
                         {{ evento.quantidade_vagas }}
                     {% endif %}
                 </div>
-                <form action="{% url 'delete_event' evento.id %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Excluir</button>
-                </form>
+                <div class="buttons">
+                    <a href="{% url 'edit_event' evento.id %}" class="edit-form">
+                        <button id="edit-button">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </a>
+                    <form action="{% url 'delete_event' evento.id %}" method="post" class="delete-form" onsubmit="return confirmDelete();">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-button">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </div>
             </li>
         {% endfor %}
     </ul>
+
+    <footer>
+        <h3>Por Hivna Castro</h3>
+        <p> Gerencie seus eventos com VivaEventsS</p>
+    </footer>
+
 </body>
 </html>
+
+<script>
+    function confirmDelete() {
+        return confirm("Tem certeza de que deseja excluir este evento?");
+    }
+</script>
