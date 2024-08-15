@@ -2,6 +2,10 @@ from django import forms
 from .models import Evento
 
 class EventoForm(forms.ModelForm):
+
+    data_inicio= forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    data_fim= forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    
     class Meta:
         model = Evento
         fields = '__all__'

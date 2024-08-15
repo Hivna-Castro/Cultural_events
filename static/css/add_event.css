@@ -47,7 +47,7 @@ form {
 
 label {
     color: #851ec1fb;
-    margin-bottom: 2px; /* Reduzido ainda mais o espaço entre o label e o campo */
+    margin-bottom: 2px; 
     font-weight: bold; 
     font-size: 14px;
 }
@@ -62,7 +62,7 @@ select {
     font-size: 14px;
     width: 100%;
     margin-top: 6px;
-    margin-bottom: -30px; /* Espaço mínimo entre o campo e o próximo label */
+    margin-bottom: -30px; 
     box-sizing: border-box;
 }
 
@@ -71,7 +71,7 @@ form button {
     background-color: #851ec1fb;
     color: #f9f9f9;
     border: none;
-    margin-top: 10px; /* Ajusta a margem superior para alinhamento */
+    margin-top: 10px; 
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;

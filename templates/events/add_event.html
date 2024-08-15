@@ -9,6 +9,7 @@
     <link rel="icon" href="{% static 'img/letter_e.png' %}" type="image/x-icon">
 </head>
 <body>
+    
     <header>
         <h1>VivaEvents</h1>
     </header>
@@ -19,6 +20,7 @@
         <form class="form" method="post">
             {% csrf_token %}
             {{ form.as_p }}
+           
             <div class="button-form">
                 <button type="button" id="return" onclick="redirectToIndex();">Cancelar</button>
                 <button type="submit">Adicionar Evento</button>
